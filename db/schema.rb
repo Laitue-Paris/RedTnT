@@ -23,6 +23,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_18_153637) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_clothes_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "clothe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothe_id"], name: "index_rentals_on_clothe_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +52,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_18_153637) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rentals", "clothes"
+  add_foreign_key "rentals", "users"
 end
