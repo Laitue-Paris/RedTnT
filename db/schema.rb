@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_18_153637) do
     t.string "size"
     t.string "category"
     t.text "description"
+    t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
