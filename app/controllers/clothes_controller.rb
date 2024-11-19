@@ -3,6 +3,7 @@ class ClothesController < ApplicationController
   end
 
   def show
+    @clothe = Clothe.find(params[:id])
   end
 
   def create
