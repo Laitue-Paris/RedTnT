@@ -17,6 +17,7 @@ puts "Creating 4 Clothes for a rental website of Red T-shirt"
 
 user1 = User.create!(first_name: "John", last_name: "Doe", email: "john@doe.com", password: "123456")
 
+
 Clothe.create!(
   name: "Red T-shirt",
   color: Clothe::COLORS.sample,
@@ -28,34 +29,71 @@ Clothe.create!(
   user: user1
 )
 
-# Clothe.create!(
-#   name: "RedT",
-#   color: "Red Tomato",
-#   price: [19, 29, 39, 49, 59].sample,
-#   size: ["S", "M", "L", "XL"].sample,
-#   category: ["T-shirt", "Sweatshirt"].sample,
-#   description: "This is a red T-shirt",
-#   user: user1
-# )
+Clothe.create!(
+  name: "Red T-rt",
+  color: Clothe::COLORS.sample,
+  price: [19, 29, 39, 49, 59].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
+  description: "This is a red T-shirt",
+  user: user1
+)
 
-# Clothe.create!(
-#   name: "Re(a)d",
-#   color: "Strawberry Red",
-#   price: [19, 29, 39, 49, 59].sample,
-#   size: ["S", "M", "L", "XL"].sample,
-#   category: ["T-shirt", "Sweatshirt"].sample,
-#   description: "This is a red T-shirt",
-#   user: user1
-# )
+Clothe.create!(
+  name: "Red T",
+  color: Clothe::COLORS.sample,
+  price: [19, 29, 39, 49, 59].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
+  description: "This is a red T-shirt",
+  user: user1
+)
 
-# Clothe.create!(
-#   name: "Red T",
-#   color: "Red",
-#   price: [19, 29, 39, 49, 59].sample,
-#   size: ["S", "M", "L", "XL"].sample,
-#   category: ["T-shirt", "Sweatshirt"].sample,
-#   description: "This is a red T-shirt",
-#   user: user1
-# )
+Clothe.create!(
+  name: "Red",
+  color: Clothe::COLORS.sample,
+  price: [19, 29, 39, 49, 59].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
+  description: "This is a red T-shirt",
+  user: user1
+)
+
+Clothe.create!(
+  name: "Re(a)d",
+  color: Clothe::COLORS.sample,
+  price: [19, 29, 39, 49, 59].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
+  description: "This is a red T-shirt",
+  user: user1
+)
+
+Clothe.create!(
+  name: "Red Tomato",
+  color: Clothe::COLORS.sample,
+  price: [19, 29, 39, 49, 59].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
+  description: "This is a red T-shirt",
+  user: user1
+)
+
+Clothe.create!(
+  name: "Red Strawberry T",
+  color: Clothe::COLORS.sample,
+  price: [19, 29, 39, 49, 59].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
+  description: "This is a red T-shirt",
+  user: user1
+)
+
 
 puts "Finished creating #{Clothe.count} Clothes "
