@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_11_19_134752) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,12 +49,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_19_134752) do
     t.string "size"
     t.string "category"
     t.text "description"
-    t.boolean "available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "brand"
     t.bigint "user_id"
-    t.string "brand"
     t.index ["user_id"], name: "index_clothes_on_user_id"
   end
 
