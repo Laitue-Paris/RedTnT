@@ -1,0 +1,8 @@
+<%= simple_form_for(clothe) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :color, collection: Clothe::COLORS %>
+  <%= f.input :category, collection: Clothe::CATEGORIES %>
+  <%= f.input :size, collection: Clothe::SIZES %>
+  
+  <%= f.submit %>
+<% end %>
