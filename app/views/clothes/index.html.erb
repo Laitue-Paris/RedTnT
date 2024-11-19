@@ -7,65 +7,44 @@
     </button>
   </div>
 <% end %>
-<div class="row">
-<div class="col-4 justify-content">
-<div class="card-product">
-  <img src=" /Users/sam/Downloads/north-56-4-t-shirt-rouge-uni-en-coton-avec-une-coupe-droite-et-un-col-rond.jpg"/>
-  <div class="card-product-infos">
+<h2>Marques</h2>
+<div class="row justify-content">
+  <div class="col-4">
+    <div class="card-product">
+      <div class="card-product-infos">
+      </div>
+    </div>
   </div>
-  </div>
-  <div class="card-product">
-  <img src=" /Users/sam/Downloads/t-shirt-s2s-flammes-rouge.jpg " />
-  <div class="card-product-infos">
-  </div>
-  </div>
-  <div class="card-product">
-  <img src=" t-shirt-s2s-flammes-rouge.jpg " />
-  <div class="card-product-infos">
-  </div>
-  </div>
-</div>
-</div>
+  <div class="col-4">
+    <div class="card-product">
+      <img src=" /Users/sam/Downloads/t-shirt-s2s-flammes-rouge.jpg " />
+      <div class="card-product-infos">
+      </div>
+     </div>
+    </div>
+    <div class="col-4">
+      <div class="card-product">
+      <img src=" t-shirt-s2s-flammes-rouge.jpg " />
+      <div class="card-product-infos">
+      </div>
+      </div>
+    </div>
+
+
 </div>
 <div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
+<% @clothes.each do |clothe| %>
+<div class="col">
     <div class="card">
-      <img src="..." class="card-img-top" alt="...">
+      <%= image_tag "rouge.jpg", class: "card-img-top" %>
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title"><%= clothe.name %></h5>
+        <p class="card-text"><%= clothe.description %></p>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
+<% end %>
 </div>
-<h2>Marques</h2>
 
 <div class="footer">
   <div class="footer-links">
@@ -75,9 +54,10 @@
     <a href="#"><i class="fab fa-twitter"></i></a>
   </div>
   <div class="footer-copyright">
-  <span class="border border-light"></span>
+  <span class="border border-black"></span>
     Le t-shirt rouge fait avec le <i class="fas fa-heart"></i> dans nos locaux.
   </div>
 </div>
 
 </div>
+ 
