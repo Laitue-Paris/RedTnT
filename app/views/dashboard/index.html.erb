@@ -1,3 +1,4 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
-<%= render "form", clothe: @clothe %>
+<div class="container">
+<h1>Bienvenue <%= @user.first_name %></h1>
+  <%= render "clothes/form", clothe: @clothe %>
+</div>

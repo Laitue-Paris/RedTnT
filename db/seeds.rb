@@ -21,8 +21,9 @@ Clothe.create!(
   name: "Red T-shirt",
   color: Clothe::COLORS.sample,
   price: [19, 29, 39, 49, 59].sample,
-  size: ["S", "M", "L", "XL"].sample,
-  category: ["T-shirt", "Sweatshirt"].sample,
+  size: Clothe::SIZES.sample,
+  category: Clothe::CATEGORIES.sample,
+  brand: Clothe::BRANDS.sample,
   description: "This is a red T-shirt",
   user: user1
 )
