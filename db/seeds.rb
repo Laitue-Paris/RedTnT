@@ -21,6 +21,7 @@ Clothe.create(
   size: ["S", "M", "L", "XL"].sample,
   category: ["T-shirt", "Sweatshirt"].sample,
   description: "This is a red T-shirt",
+  brand: ["Gucci", "Prada", "Zara", "Uniqlo"].sample,
 )
 
 Clothe.create(
@@ -30,6 +31,7 @@ Clothe.create(
   size: ["S", "M", "L", "XL"].sample,
   category: ["T-shirt", "Sweatshirt"].sample,
   description: "This is a red T-shirt",
+  brand: ["Gucci", "Prada", "Zara", "Uniqlo"].sample,
 )
 
 Clothe.create(
@@ -39,6 +41,7 @@ Clothe.create(
   size: ["S", "M", "L", "XL"].sample,
   category: ["T-shirt", "Sweatshirt"].sample,
   description: "This is a red T-shirt",
+  brand: ["Gucci", "Prada", "Zara", "Uniqlo"].sample,
 )
 
 Clothe.create(
@@ -48,6 +51,7 @@ Clothe.create(
   size: ["S", "M", "L", "XL"].sample,
   category: ["T-shirt", "Sweatshirt"].sample,
   description: "This is a red T-shirt",
+  brand: ["Gucci", "Prada", "Zara", "Uniqlo"].sample,
 )
 
 puts "Finished creating #{Clothe.count} Clothes "
