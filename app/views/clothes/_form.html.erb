@@ -1,0 +1,36 @@
+<div class="row my-4">
+  <div class="col-6 m-auto bg-light m-3 p-3">
+    <%= simple_form_for(clothe) do |f| %>
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <%= f.input :name %>
+        </div>
+        <div class="col-4">
+          <%= f.input :color, collection: Clothe::COLORS %>
+        </div>
+        <div class="col-4">
+          <%= f.input :price %>
+        </div>
+        <div class="col-4">
+          <%= f.input :category, collection: Clothe::CATEGORIES %>
+        </div>
+        <div class="col-4">
+          <%= f.input :size, collection: Clothe::SIZES %>
+        </div>
+        <div class="col-4">
+          <%= f.input :brand, collection: Clothe::BRANDS %>
+        </div>
+        <div class="col-12">
+          <%= f.input :description %>
+        </div>
+          <div class="col-12">
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        </div>
+        <div class="col-2">
+          <%= f.submit  class:"btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
