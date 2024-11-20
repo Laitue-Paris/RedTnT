@@ -1,5 +1,6 @@
 class ClothesController < ApplicationController
   def index
+    @clothes = Clothe.all
   end
 
   def show
@@ -20,6 +21,6 @@ class ClothesController < ApplicationController
   private
 
   def clothes_params
-    params.require(:clothe).permit(:name, :description, :brand, :category, :size, :price, :color, :photos)
+    params.require(:clothe).permit(:name, :description, :brand, :category, :size, :price, :color, :photo)
   end
 end
