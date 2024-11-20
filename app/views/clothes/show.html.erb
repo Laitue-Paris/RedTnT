@@ -6,9 +6,11 @@
         <aside class="col-lg-6">
           <div class="border rounded-4 mb-3 d-flex justify-content-center">
             <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="">
-
-              <%= cl_image_tag @clothe&.photo.attached? ? @clothe.photo.key : image_tag('t-shirt.png'), class: "rounded-4 fit card-product-show" %>
-
+            <% if @clothe&.photo.attached? %>
+              <%= cl_image_tag @clothe.photo.key, class: "rounded-4 fit card-product-show" %>
+            <% else %>
+              <%= image_tag('t-shirt.png', class: "rounded-4 fit card-product-show") %>
+            <% end %>
               <%# <img class="rounded-4 fit card-product-show"/> %>
             </a>
           </div>
