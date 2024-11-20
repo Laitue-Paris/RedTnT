@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
-  get 'rentals/create'
-  get 'rentals/update'
 
   devise_for :users
   root to: "pages#home"
