@@ -14,6 +14,6 @@ class Clothe < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES }
   validates :price, numericality: true
 
-  
+
 
 end
