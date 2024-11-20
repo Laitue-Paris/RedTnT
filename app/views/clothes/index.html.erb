@@ -1,52 +1,78 @@
 <div class="container">
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group col-8 center">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-primary">
-      <i class="fas fa-search"></i> Rechercher
-    </button>
+
+<h1 class="pb-5 uppercase font_m_semibold center" data-testid="heading">Résultats de la recherche</h1>
+
+
+
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 g-4 mb-4">
+<% @clothes.each do |clothe| %>
+<div class="col">
+    <div class="card">
+      <%= image_tag "rouge brique.jpg", class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= clothe.brand %> </h5>
+        <p class="card-text"><%= clothe.description %></p>
+        <p class="card-text"><%= clothe.color %></p>
+        <p class="card-text">€<%= clothe.price %></p>
+         <%= link_to "Ajouter au panier", clothe_path(clothe), class: "btn btn-primary"%>
+      </div>
+    </div>
   </div>
 <% end %>
-<h2>Marques</h2>
+</div>
+
+
+
+
+<h2></h2>
 <div class="row justify-content">
   <div class="col-4">
     <div class="card-product">
+    <%= image_tag "pull rouge model.jpeg", class: "card-product" %>
       <div class="card-product-infos">
+      <h2>Nuancier</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
     </div>
   </div>
   <div class="col-4">
     <div class="card-product">
-      <img src=" /Users/sam/Downloads/t-shirt-s2s-flammes-rouge.jpg " />
+    <%= image_tag "nuancier.jpg", class: "card-product" %>
       <div class="card-product-infos">
+       <h2>Type de produit</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
      </div>
     </div>
     <div class="col-4">
       <div class="card-product">
-      <img src=" t-shirt-s2s-flammes-rouge.jpg " />
+      <%= image_tag "portrait.jpg", class: "card-product" %>
       <div class="card-product-infos">
+      <h2>Nouveauté</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
       </div>
     </div>
-
-
-</div>
-<div class="row row-cols-1 row-cols-md-2 g-4">
-<% @clothes.each do |clothe| %>
-<div class="col">
-    <div class="card">
-      <%= image_tag "rouge.jpg", class: "card-img-top" %>
-      <div class="card-body">
-        <h5 class="card-title"><%= clothe.name %></h5>
-        <p class="card-text"><%= clothe.description %></p>
-      </div>
     </div>
-  </div>
-<% end %>
-</div>
+    </div>
 
-<div class="footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -57,7 +83,4 @@
   <span class="border border-black"></span>
     Le t-shirt rouge fait avec le <i class="fas fa-heart"></i> dans nos locaux.
   </div>
-</div>
-
-</div>
- 
+</div> %>
