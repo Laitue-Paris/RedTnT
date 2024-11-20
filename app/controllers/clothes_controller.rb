@@ -4,7 +4,9 @@ class ClothesController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
     @clothe = Clothe.find(params[:id])
+    @random_clothes = Clothe.all.sample(5)
   end
 
   def create
