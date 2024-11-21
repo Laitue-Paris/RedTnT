@@ -1,4 +1,27 @@
 <div class="container">
-<h1>Bienvenue <%= @user.first_name %></h1>
+  <h1>Bienvenue <%= @user.first_name %></h1>
+  <div class="row justify-content-between">
+    <div class="col-6">
+      <div class="card border-lig mb-3" id="dashboard">
+        <div class="row bg-light">
+          <div class="col-md-4">
+            <%= image_tag "utilisateur.png", class: "img-fluid radius-50"%>
+          </div>
+          <div class="col-md-8 align-content-center">
+            <div class="card-body">
+              <h5 class="card-title py-4">Nombres de locations effectuées : <span class="text-primary"><%= @user.rental_ids.count %></span></h5>
+              <h5 class="card-title py-4">Nombres de locations en cours : <span class="text-secondary"><%= @rentals.count %></span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      2
+    </div>
+    <div class="col-3">
+      3
+    </div>
+  </div>
   <%= render "clothes/form", clothe: @clothe %>
 </div>
