@@ -1,11 +1,14 @@
 class ClothesController < ApplicationController
   def index
     @clothes = Clothe.all
-    if params[:color].present?
-      @clothes = @clothes.where(color: params[:color])
-    end
-    if params[:brand].present?
-      @clothes = @clothes.where(brand: params[:brand])
+    @rentals = Rental.all
+    params[:color].present? ? @clothes = @clothes.where(color: params[:color]) : ""
+    params[:brand].present? ? @clothes = @clothes.where(brand: params[:brand]) : ""
+    if params[:start_date].present? && params[:end_date].present?
+      @rentals = @rentals.where("start_date <= ? AND end_date >= ?", params[:start_date], params[:end_date])
+      @clothes = @clothes.reject do |clothe|
+        (clothe.rentals & @rentals).any?
+      end
     end
   end
 

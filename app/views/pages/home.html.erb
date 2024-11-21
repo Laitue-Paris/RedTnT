@@ -13,6 +13,8 @@
                         Clothe::COLORS, :to_s, :to_s,
                         prompt: "Couleurs",
                         class: "form-control"%>
+            <%= form.date_field :start_date %>
+            <%= form.date_field :end_date %>
             <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
           <% end %>
         </div>
