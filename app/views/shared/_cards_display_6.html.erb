@@ -1,5 +1,5 @@
     <% @clothes.sample(6).each do |clothe| %>
-      <div class="col-2 mt-2">
+      <div class="mt-2">
         <div class="card rounded">
         <%= link_to clothe_path(clothe) do %>
           <%= clothe&.photo.attached? ? cl_image_tag(clothe.photo.key) : image_tag('t-shirt.png', height: 200) %>
