@@ -2,22 +2,22 @@
   <div class="container">
     <div class="bg-white col-6 p-3 m-auto">
       <h1 class="text-secondary text-center">RedTnt vient te mettre <span class="text-primary"><strong>du rouge</strong></span> dans <strong>ta vie</strong>!</h1>
-      <div class="row justify-content-center">
-        <div class="col-sm-8 my-3">
-          <%= form_with url: clothes_path, method: :get, class: "d-flex" do |form| %>
+      <div class="row justify-content-center mt-3">
+          <%= form_with url: clothes_path, method: :get  do |form| %>
             <%= form.collection_select :brand,
                         Clothe::BRANDS, :to_s, :to_s,
                         prompt: "Marques",
-                        class: "form-control"%>
+                        class: "form-control p-3"%>
             <%= form.collection_select :color,
                         Clothe::COLORS, :to_s, :to_s,
                         prompt: "Couleurs",
                         class: "form-control"%>
             <%= form.date_field :start_date %>
             <%= form.date_field :end_date %>
+            <div class="text-center mt-3">
             <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+            </div>
           <% end %>
-        </div>
       </div>
     </div>
   </div>
