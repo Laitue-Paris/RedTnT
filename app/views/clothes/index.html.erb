@@ -7,13 +7,22 @@
 <% @clothes.each do |clothe| %>
 <div class="col">
     <div class="card">
-      <%= image_tag "rouge brique.jpg", class: "card-img-top" %>
+    <% if clothe.photo.attached? %>
+     <%= cl_image_tag clothe.photo.key, class: "card-img-top" %>
+     <% else %>
+     <%= image_tag "t-shirt 2.jpg", class: "card-img-top" %>
+     <i class="fa-regular fa-heart"></i>
+     <% end  %>
       <div class="card-body">
+      <p class="card-text"><%= clothe.description %></p>
         <h5 class="card-title"><%= clothe.brand %> </h5>
-        <p class="card-text"><%= clothe.description %></p>
-        <p class="card-text"><%= clothe.color %></p>
-        <p class="card-text">€<%= clothe.price %></p>
-         <%= link_to "Ajouter au panier", clothe_path(clothe), class: "btn btn-primary"%>
+          <p class="card-text" ><%= clothe.color %></p>
+<div class="card-color" style= "background-color: <%= clothe.hexa_color %>;">
+
+
+</div>
+           <p class="card-text" style="font-size: 1.2rem; font-weight: semi-bold; color: black; margin: 10px 0; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);" >€<%= clothe.price %></p>
+        <%= link_to "Louer moi", clothe_path(clothe), class: "btn btn-primary"%>
       </div>
     </div>
   </div>
@@ -21,12 +30,12 @@
 </div>
 
 
-<h2></h2>
-<div class="row justify-content">
+
+<%# <div class="row justify-content">
   <div class="col-4">
     <div class="card-product">
     <%= image_tag "pull rouge model.jpeg", class: "card-product" %>
-      <div class="card-product-infos">
+      <%# <div class="card-product-infos">
       <h2>Nuancier</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
@@ -35,23 +44,23 @@
   <div class="col-4">
     <div class="card-product">
     <%= image_tag "nuancier.jpg", class: "card-product" %>
-      <div class="card-product-infos">
+      <%# <div class="card-product-infos">
        <h2>Type de produit</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
       </div>
      </div>
-    </div>
-    <div class="col-4">
+    </div> %>
+    <%# <div class="col-4">
       <div class="card-product">
       <%= image_tag "portrait.jpg", class: "card-product" %>
-      <div class="card-product-infos">
-      <h2>Nouveauté</h2>
+      <%# <div class="card-product-infos"> %>
+      <%# <h2>Nouveauté</h2>
     <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-      </div>
-    </div>
-    </div>
-    </div>
+      </div> %>
+      <%# </div>
+    </div> %>
+    <%# </div>
+    </div>%>
 
 
 <%# <div class="footer">

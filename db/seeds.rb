@@ -17,7 +17,6 @@ puts "Creating 4 Clothes for a rental website of Red T-shirt"
 
 user1 = User.create!(first_name: "John", last_name: "Doe", email: "john@doe.com", password: "123456")
 
-
 Clothe.create!(
   name: "Red T-shirt",
   color: Clothe::COLORS.sample,
@@ -28,6 +27,7 @@ Clothe.create!(
   description: "This is a red T-shirt",
   user: user1
 )
+
 
 Clothe.create!(
   name: "Red T-rt",
