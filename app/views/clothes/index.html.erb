@@ -4,37 +4,40 @@
 
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 g-3 mb-4">
-
-<% @clothes.each do |clothe| %>
-<div class="col">
-    <div class="card-container">
-      <% if clothe.photo.attached? %>
+  <% if @clothes.any? %>
+    <% @clothes.each do |clothe| %>
+      <div class="col">
         <div class="card-container">
-          <%= cl_image_tag clothe.photo.key, class: "card-img-top" %>
-          <i class="fa-regular fa-heart favorite-icon"></i>
-        </div>
-      <% else %>
-        <div class="card-container">
-          <%= image_tag "t-shirt 2.jpg", class: "card-img-top" %>
-          <i class="fa-regular fa-heart red favorite-icon"></i>
-        </div>
-       <% end  %>
+          <% if clothe.photo.attached? %>
+            <div class="card-container">
+              <%= cl_image_tag clothe.photo.key, class: "card-img-top" %>
+              <i class="fa-regular fa-heart favorite-icon"></i>
+            </div>
+          <% else %>
+            <div class="card-container">
+              <%= image_tag "t-shirt 2.jpg", class: "card-img-top" %>
+              <i class="fa-regular fa-heart red favorite-icon"></i>
+            </div>
+          <% end  %>
 
-    <div class ="card">
-      <div class="card-body">
-      <p class="card-text"><%= clothe.description %></p>
-        <h5 class="card-title" style="font-size: 0.9rem; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px ; font-family: 'Montserrat', sans-serif;"><%= clothe.brand %> </h5>
-          <p class="card-text" ><%= clothe.color %></p>
-          <div class="card-color" style= "background-color: <%= clothe.hexa_color %>;">
+            <div class ="card">
+              <div class="card-body">
+              <p class="card-text"><%= clothe.description %></p>
+                <h5 class="card-title" style="font-size: 0.9rem; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px ; font-family: 'Montserrat', sans-serif;"><%= clothe.brand %> </h5>
+                  <p class="card-text" ><%= clothe.color %></p>
+                  <div class="card-color" style= "background-color: <%= clothe.hexa_color %>;">
+                  </div>
+                  <p class="card-text" style="font-size: 1.2rem; font-weight: semi-bold; color: black; margin: 10px 0; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);" >€<%= clothe.price %></p>
+                <%= link_to "Louer moi", clothe_path(clothe), class: "btn btn-primary"%>
+              </div>
+              </div>
+            </div>
           </div>
-           <p class="card-text" style="font-size: 1.2rem; font-weight: semi-bold; color: black; margin: 10px 0; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);" >€<%= clothe.price %></p>
-        <%= link_to "Louer moi", clothe_path(clothe), class: "btn btn-primary"%>
-      </div>
-      </div>
-    </div>
+    <% end %>
+  <% else %>
+    <em>On n'a pas le droit au <span class="text-secondary">bonheur</span>. Il n'y a plus de <span class="text-primary">T-shirt</span> disponible</em>
+  <% end %>
   </div>
-<% end %>
-</div>
 </div>
 
 
