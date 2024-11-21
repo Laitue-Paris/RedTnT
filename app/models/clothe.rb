@@ -1,5 +1,6 @@
 class Clothe < ApplicationRecord
   has_one_attached :photo
+  has_many :rentals
   belongs_to :user
   has_many :rentals
 
