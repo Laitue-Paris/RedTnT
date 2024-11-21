@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   def index
+    @clothes = Clothe.all
     @user = current_user
     @clothe = Clothe.new
     @rentals = Rental.all
@@ -7,5 +8,10 @@ class DashboardController < ApplicationController
     @total_rented = @user.rentals.map do |rental|
       rental.clothe[:price]
     end
+    @item_rented = @user.rentals.map do |rental|
+      rental.clothe
+    end
+    @my_rentals = @rentals.where("user_id = ?", current_user.id)
+    raise
   end
 end
