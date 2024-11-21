@@ -1,2 +1,169 @@
-<h1>Clothes#show</h1>
-<p>Find me in app/views/clothes/show.html.erb</p>
+<div class="container"><header>
+  <!-- content -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row gx-5">
+        <aside class="col-lg-6">
+          <div class="border rounded-4 mb-3 d-flex justify-content-center">
+            <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="">
+            <% if @clothe&.photo.attached? %>
+              <%= cl_image_tag @clothe.photo.key, class: "rounded-4 fit card-product-show" %>
+            <% else %>
+              <%= image_tag('t-shirt.png', class: "rounded-4 fit card-product-show") %>
+            <% end %>
+              <%# <img class="rounded-4 fit card-product-show"/> %>
+            </a>
+          </div>
+        </aside>
+        <main class="col-lg-6">
+          <div class="ps-lg-3">
+            <h2 class="title text-dark">
+              <%= @clothe.name %><br />
+            </h2>
+            <div class="d-flex flex-row my-3">
+              <div class="text-warning mb-1 me-2">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="ms-1">
+                  4.5
+                </span>
+              </div>
+              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 locations</span>
+              <span class="text-success ms-2">Disponible</span>
+              <%# à coder une fois que la disponibilité sera dans le schema %>
+            </div>
+
+            <div class="mb-3">
+              <span class="h5"><%= @clothe.price %>.00€</span>
+              <span class="text-muted">/par jour</span>
+            </div>
+            <p>
+            <%= @clothe.description %>
+            </p>
+
+            <div class="row">
+              <dt class="col-3">Catégorie:</dt>
+              <dd class="col-9"><%= @clothe.category %></dd>
+
+              <dt class="col-3">Couleur</dt>
+              <dd class="col-9"><%= @clothe.color %></dd>
+
+              <dt class="col-3">Taille</dt>
+              <dd class="col-9"><%= @clothe.size %></dd>
+
+              <dt class="col-3">Marque</dt>
+              <dd class="col-9"><%= @clothe.brand %></dd>
+            </div>
+
+            <hr />
+
+            <div class="row mb-4">
+              <div class="col-md-4 col-6">
+                <label class="mb-2">Date de début</label>
+                    <%= simple_form_for [@clothe, @rental],  data: { controller: 'flatpickr' } do |f| %>
+                    <%= f.input :start_date,  as: :string, input_html: { data: { flatpickr_target: "startTime" } }  %>
+                    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" } }  %>
+                    <%= f.submit 'Louer', class: "btn btn-default btn-primary btn-lg" %>
+                  <% end %>
+              </div>
+              <!-- col.// -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- content -->
+  <div class="card-category-show">
+  Toute l'offre Red Tnt
+  </div>
+
+  <div class="container my-5">
+    <h2>Notre sélection pour vous</h2>
+    <p>Retrouvez une sélection d'articles disponibles près de chez vous correspondant à votre recherche. </p>
+    <div class="row my-5 gap-2 justify-content-center">
+        <% @random_clothes.each do |clothe| %>
+          <div class="col-2">
+            <div class="card">
+                <img class="card-img-top" src="<%= image_path("Tshirt rouge 2.png") %>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><%= clothe.name %></h5>
+                  <p class="card-text"><%= clothe.description %></p>
+                  <a href="#" class="btn btn-primary">Louer</a>
+                </div>
+              </div>
+          </div>
+       <% end %>
+    </div>
+  </div>
+
+  <%# <section class="bg-light border-top py-4">
+    <div class="container">
+      <div class="row gx-4">
+        <div class="col-lg-8 mb-4">
+          <div class="border rounded-2 px-3 py-2 bg-white">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="px-0 border rounded-2 shadow-0">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Similar items</h5>
+                <div class="d-flex mb-3">
+                  <a href="#" class="me-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/8.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                  </a>
+                  <div class="info">
+                    <a href="#" class="nav-link mb-1">
+                      Rucksack Backpack Large <br />
+                      Line Mounts
+                    </a>
+                    <strong class="text-dark"> $38.90</strong>
+                  </div>
+                </div>
+
+                <div class="d-flex mb-3">
+                  <a href="#" class="me-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/9.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                  </a>
+                  <div class="info">
+                    <a href="#" class="nav-link mb-1">
+                      Summer New Men's Denim <br />
+                      Jeans Shorts
+                    </a>
+                    <strong class="text-dark"> $29.50</strong>
+                  </div>
+                </div>
+
+                <div class="d-flex mb-3">
+                  <a href="#" class="me-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/10.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                  </a>
+                  <div class="info">
+                    <a href="#" class="nav-link mb-1"> T-shirts with multiple colors, for men and lady </a>
+                    <strong class="text-dark"> $120.00</strong>
+                  </div>
+                </div>
+
+                <div class="d-flex">
+                  <a href="#" class="me-3">
+                    <img src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/11.webp" style="min-width: 96px; height: 96px;" class="img-md img-thumbnail" />
+                  </a>
+                  <div class="info">
+                    <a href="#" class="nav-link mb-1"> Blazer Suit Dress Jacket for Men, Blue color </a>
+                    <strong class="text-dark"> $339.90</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> %>
+</div>

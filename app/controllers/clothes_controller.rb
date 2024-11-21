@@ -4,7 +4,9 @@ class ClothesController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
     @clothe = Clothe.find(params[:id])
+    @random_clothes = Clothe.all.sample(5)
   end
 
   def create
@@ -21,6 +23,6 @@ class ClothesController < ApplicationController
   private
 
   def clothes_params
-    params.require(:clothe).permit(:name, :description, :brand, :category, :size, :price, :color, :photos)
+    params.require(:clothe).permit(:name, :description, :brand, :category, :size, :price, :color, :photo)
   end
 end
