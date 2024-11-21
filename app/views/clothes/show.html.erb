@@ -78,7 +78,6 @@
     </div>
   </section>
 
-
   <!-- content -->
   <div class="card-category-show">
   <%= link_to("Toute l'offre Red Tnt", clothes_path) %>
@@ -91,11 +90,11 @@
         <% @random_clothes.each do |clothe| %>
           <div class="col-2">
             <div class="card">
-                <img class="card-img-top" src="<%= image_path("Tshirt rouge 2.png") %>" alt="Card image cap">
+                <img class="card-img-top" src="<%= clothe&.photo.attached? ? cl_image_path(clothe.photo.key) : image_path('t-shirt.png') %>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%= clothe.name %></h5>
                   <p class="card-text"><%= clothe.description %></p>
-                  <a href="#" class="btn btn-primary">Louer</a>
+                  <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
                 </div>
               </div>
           </div>

@@ -8,6 +8,7 @@ class ClothesController < ApplicationController
     @clothe = Clothe.find(params[:id])
     @random_clothes = Clothe.all.sample(5)
     @rental_count = @clothe.rentals.count
+    @user = current_user
   end
 
   def create
