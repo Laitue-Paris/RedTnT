@@ -5,9 +5,15 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.clothe = @clothe
     if @rental.save
-      redirect_to rental_path(@rental), notice: "Rental created"
+      respond_to do |format|
+        format.html { redirect_to dashboard_index_path }
+        format.json { render json: { success: true, url: dashboard_index_path}}
+      end
     else
-      render "clothes/show", status: :unprocessable_entity
+      respond_to do |format|
+        format.html { redirect_to clothe_path(@clothe) }
+        format.json { render json: { success: false, form: render_to_string(partial: "clothes/rentalform", locals: {rental: @rental}, formats: [:html] )}}
+      end
     end
   end
 

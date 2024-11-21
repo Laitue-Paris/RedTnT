@@ -59,24 +59,10 @@
             <hr />
 
             <div class="row mb-4">
-              <div>
+              <div data-controller="form">
                   <h4>Démarrer ma location</h4>
                 <label class="mb-2"></label>
-                    <%= simple_form_for [@clothe, @rental], data: { controller: 'flatpickr',controller: "alert",
-                                          alert_icon_value: "warning",
-                                          alert_title_value: "Are your sure?",
-                                          alert_html_value: "Create new post.",
-                                          confirm_button_text: "All good!",
-                                          show_cancel_button: true,
-                                          cancel_button_text: "Cancel",
-                                          action: "submit->alert#initSweetalert",
-                                          turbo: false } do |f| %>
-                    <div class="row">
-                    <div class="col-6"><%= f.input :start_date, label: 'Date de début', as: :string, input_html: { data: { flatpickr_target: "startTime" } }  %></div>
-                    <div class="col-6"><%= f.input :end_date, label: 'Date de fin', as: :string, input_html: { data: { flatpickr_target: "endTime" } }  %></div>
-                    </div>
-                    <%= f.submit 'Louer', class: "btn btn-default btn-primary btn-lg" %>
-                  <% end %>
+                 <%= render "rentalform" %>
               </div>
               <!-- col.// -->
             </div>
