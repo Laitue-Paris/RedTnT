@@ -9,8 +9,14 @@
           </div>
           <div class="col-md-8 align-content-center">
             <div class="card-body">
-              <h5 class="card-title py-4">Nombres de locations effectuées : <span class="text-primary"><%= @user.rental_ids.count %></span></h5>
-              <h5 class="card-title py-4">Nombres de locations en cours : <span class="text-secondary"><%= @rentals.count %></span></h5>
+              <h5 class="card-title py-2">Nombres de locations effectuées : <span class="text-primary"><%= @user.rental_ids.count %></span></h5>
+              <div class="text-center">
+                <button class="btn btn-secondary">Historique</button>
+              </div>
+              <h5 class="card-title py-2">Nombres de locations en cours : <span class="text-secondary"><%= @rentals.count %></span></h5>
+              <div class="text-center">
+                <button class="btn btn-secondary">Mes locations en cours</button>
+              </div>
             </div>
           </div>
         </div>
@@ -19,7 +25,9 @@
     <div class="col-3 bg-light text-center">
       <h2>Revenus</h2>
       <%= @total_rented.sum %>€
-      <button class="btn btn-primary">J'en veux plus</button>
+      <div class="mt-3">
+        <button class="btn btn-primary">J'en veux plus</button>
+      </div>
     </div>
     <div class="col-3 bg-light">
       3
