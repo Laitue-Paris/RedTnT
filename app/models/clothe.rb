@@ -1,6 +1,7 @@
 class Clothe < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
+  has_many :rentals
 
   COLORS = ["Blood Red", "Brick Red", "Bright Red", "Brown", "Burgundy", "Burnt Umber", "Burnt Orange", "Burnt Sienna", "Byzantium", "Cadmium Red", "Cardinal Red", "Carmine", "Cerise", "Cherry", "Chestnut", "Claret", "Coral Pink", "Cordovan", "Crimson", "Dark Red", "Falu Red", "Garnet", "Mahogany", "Maroon", "Marsala", "Mulberry", "Neon Red", "Oxblood", "Pastel Red", "Persimmon", "Poppy", "Puce", "Raspberry", "Red", "Red Brown", "Red Ochre", "Red"]
   SIZES = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"]

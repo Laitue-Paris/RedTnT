@@ -22,18 +22,16 @@
             </h2>
             <div class="d-flex flex-row my-3">
               <div class="text-warning mb-1 me-2">
+                <%# <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="ms-1">
+                <i class="fas fa-star-half-alt"></i> %>
+                <%# <span class="ms-1">
                   4.5
-                </span>
+                </span> %>
               </div>
-              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 locations</span>
-              <span class="text-success ms-2">Disponible</span>
-              <%# à coder une fois que la disponibilité sera dans le schema %>
+              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i><%= pluralize(@rental_count, "location") %></span>
             </div>
 
             <div class="mb-3">
@@ -88,10 +86,9 @@
     </div>
   </section>
 
-
   <!-- content -->
   <div class="card-category-show">
-  Toute l'offre Red Tnt
+  <%= link_to("Toute l'offre Red Tnt", clothes_path) %>
   </div>
 
   <div class="container my-5">
@@ -101,11 +98,11 @@
         <% @random_clothes.each do |clothe| %>
           <div class="col-2">
             <div class="card">
-                <img class="card-img-top" src="<%= image_path("Tshirt rouge 2.png") %>" alt="Card image cap">
+                <img class="card-img-top" src="<%= clothe&.photo.attached? ? cl_image_path(clothe.photo.key) : image_path('t-shirt.png') %>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%= clothe.name %></h5>
                   <p class="card-text"><%= clothe.description %></p>
-                  <a href="#" class="btn btn-primary">Louer</a>
+                  <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
                 </div>
               </div>
           </div>
