@@ -2,8 +2,20 @@
   <div class="container">
     <div class="bg-white col-6 p-3 m-auto">
       <h1 class="text-secondary text-center">RedTnt vient te mettre <span class="text-primary"><strong>du rouge</strong></span> dans <strong>ta vie</strong>!</h1>
-      <div class="text-center">
-        <a class="btn btn-primary align-item-center mt-4" href="/clothes">Adopte la vie en <span class="strong">rouge</span></a>
+      <div class="row justify-content-center">
+        <div class="col-sm-8 my-3">
+          <%= form_with url: clothes_path, method: :get, class: "d-flex" do |form| %>
+            <%= form.collection_select :brand,
+                        Clothe::BRANDS, :to_s, :to_s,
+                        prompt: "Marques",
+                        class: "form-control"%>
+            <%= form.collection_select :color,
+                        Clothe::COLORS, :to_s, :to_s,
+                        prompt: "Couleurs",
+                        class: "form-control"%>
+            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

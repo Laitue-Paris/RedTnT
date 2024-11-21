@@ -1,6 +1,12 @@
 class ClothesController < ApplicationController
   def index
     @clothes = Clothe.all
+    if params[:color].present?
+      @clothes = @clothes.where(color: params[:color])
+    end
+    if params[:brand].present?
+      @clothes = @clothes.where(brand: params[:brand])
+    end
   end
 
   def show

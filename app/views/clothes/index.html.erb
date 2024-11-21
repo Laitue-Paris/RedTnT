@@ -4,22 +4,25 @@
 
 
 
-
 <div class="row row-cols-1 row-cols-md-2 row-cols-md-3 row-cols-md-4 g-4 mb-4">
-<% @clothes.each do |clothe| %>
-<div class="col">
-    <div class="card">
-      <%= image_tag "rouge brique.jpg", class: "card-img-top" %>
-      <div class="card-body">
-        <h5 class="card-title"><%= clothe.brand %> </h5>
-        <p class="card-text"><%= clothe.description %></p>
-        <p class="card-text"><%= clothe.color %></p>
-        <p class="card-text">€<%= clothe.price %></p>
-         <%= link_to "Ajouter au panier", clothe_path(clothe), class: "btn btn-primary"%>
+  <% if @clothes.any? %>
+    <% @clothes.each do |clothe| %>
+    <div class="col">
+        <div class="card">
+          <%= image_tag "rouge brique.jpg", class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= clothe.brand %> </h5>
+            <p class="card-text"><%= clothe.description %></p>
+            <p class="card-text"><%= clothe.color %></p>
+            <p class="card-text">€<%= clothe.price %></p>
+            <%= link_to "Ajouter au panier", clothe_path(clothe), class: "btn btn-primary"%>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-<% end %>
+    <% end %>
+  <% else %>
+    <em>On n'a pas le droit au <span class="text-secondary">bonheur</span>. Il n'y a plus de <span class="text-primary">T-shirt</span> disponible</em>
+  <% end %>
 </div>
 
 
