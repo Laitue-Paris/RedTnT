@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Bienvenue <%= @user.first_name %></h1>
   <div class="row justify-content-between">
-    <div class="col-6">
-      <div class="card border-lig mb-3" id="dashboard">
-        <div class="row bg-light">
+    <div class="col-6 bg-light">
+      <div class="card  bg-light mb-3" id="dashboard">
+        <div class="row">
           <div class="col-md-4">
             <%= image_tag "utilisateur.png", class: "img-fluid radius-50"%>
           </div>
@@ -16,10 +16,11 @@
         </div>
       </div>
     </div>
-    <div class="col-3">
-      2
+    <div class="col-3 bg-light text-center">
+      <h2>Revenus</h2>
+      <%= @total_rented.sum %>€
     </div>
-    <div class="col-3">
+    <div class="col-3 bg-light">
       3
     </div>
   </div>
