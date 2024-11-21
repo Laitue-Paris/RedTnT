@@ -7,6 +7,7 @@ class ClothesController < ApplicationController
     @rental = Rental.new
     @clothe = Clothe.find(params[:id])
     @random_clothes = Clothe.all.sample(5)
+    @rental_count = @clothe.rentals.count
   end
 
   def create
