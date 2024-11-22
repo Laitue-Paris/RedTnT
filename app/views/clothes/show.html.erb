@@ -80,19 +80,8 @@
   <div class="container my-5">
     <h2>Notre sélection pour vous</h2>
     <p>Retrouvez une sélection d'articles disponibles près de chez vous correspondant à votre recherche. </p>
-    <div class="row my-5 gap-2 justify-content-center">
-        <% @random_clothes.each do |clothe| %>
-          <div class="col-2">
-            <div class="card">
-                <img class="card-img-top" src="<%= clothe&.photo.attached? ? cl_image_path(clothe.photo.key) : image_path('t-shirt.png') %>" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title"><%= clothe.name %></h5>
-                  <p class="card-text"><%= clothe.description %></p>
-                  <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
-                </div>
-              </div>
-          </div>
-       <% end %>
+    <div class="row my-5 justify-content-center">
+      <%= render "shared/cards_display_6" %>
     </div>
   </div>
 </div>
