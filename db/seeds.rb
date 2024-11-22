@@ -39,6 +39,10 @@ FIRST_NAMES = %w[Jean Marie Paul Sophie Claire Jacques Elise Lucie Antoine Camil
 LAST_NAMES = %w[Durand Dupont Martin Bernard Morel Lefebvre Simon Laurent Michel David]
 EMAIL_DOMAINS = %w[gmail.com yahoo.com outlook.com example.com]
 
+USER_PHOTOS = ["user-1.png", "user-2.png", "user-3.png"]
+TSHIRTS_PHOTOS = ["tshirt-1.png", "tshirt-2.png", "tshirt-3.png", "tshirt-4.png","tshirt-5.png","tshirt-6.png","tshirt-7.png","tshirt-8.png","tshirt-9.png","tshirt-10.png"]
+
+
 puts "Cleaning the database..."
 Clothe.destroy_all
 User.destroy_all
@@ -56,10 +60,20 @@ puts "Creating some users "
     email: email,
     password: "123456"
   )
+  photo = USER_PHOTOS.sample
+  file_path = File.open("app/assets/images/#{photo}")
+  user.photo.attach(io: file_path, filename: "#{photo}", content_type: "image/png")
+  user.save
 end
-  user = User.create!(first_name: "John", last_name: "Doe", email: "john@doe.com", password: "123456")
 
-puts "Finished creating #{User.count} Clothes "
+user = User.create!(first_name: "John", last_name: "Doe", email: "john@doe.com", password: "123456")
+USER_PHOTOS.each do |photo|
+  file_path = File.open("app/assets/images/#{photo}")
+  user.photo.attach(io: file_path, filename: "#{photo}", content_type: "image/png")
+  user.save
+end
+
+puts "Finished creating #{User.count} Users"
 
 puts "Creating some Clothes for a rental website of Red T-shirt"
 
@@ -67,33 +81,25 @@ puts "Creating some Clothes for a rental website of Red T-shirt"
 50.times do
   clothe = Clothe.create!(
     name: RED_TSHIRT_NAMES.sample,
-    color: "Red",
-    price: [19, 29, 39, 49, 59].sample,
+    color: Clothe::COLORS.sample,
+    price: (4..19).sample,
     size: Clothe::SIZES.sample,
     category: Clothe::CATEGORIES.sample,
     brand: Clothe::BRANDS.sample,
     description: RED_TSHIRT_DESCRIPTIONS.sample,
     user: User.all.sample
   )
+  photo = TSHIRTS_PHOTOS.sample
+  file_path = File.open("app/assets/images/#{photo}")
+  clothe.photo.attach(io: file_path, filename: "#{photo}", content_type: "image/png")
+  clothe.save
+
 end
 
 puts "50 red T-shirts with unique names and descriptions created!"
 
-user_photos = ["user-1.png", "user-2.png", "user-3.png"]
 
-user_photos.each do |photo|
-  file_path = File.open("app/assets/images/#{photo}")
-  user.photo.attach(io: file_path, filename: "#{photo}", content_type: "image/png")
-  user.save
-end
 
-tshirts_photos = ["tshirt-1.jpg", "tshirt-2.jpg", "tshirt-3.jpg", "tshirt-4.jpg","tshirt-5.jpg","tshirt-6.jpg","tshirt-7.jpg","tshirt-8.jpg","tshirt-9.jpg","tshirt-10.jpg"]
-
-tshirts_photos.each do |photo|
-  file_path = File.open("app/assets/images/#{photo}")
-  clothe.photo.attach(io: file_path, filename: "#{photo}", content_type: "image/jpg")
-  clothe.save
-end
 
 # Clothe.create!(
 #   name: "Red T-shirt",
