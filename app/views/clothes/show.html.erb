@@ -1,6 +1,6 @@
 <div class="container"><header>
   <!-- content -->
-  <section class="py-5">
+  <section class="py-5 bg-light mb-5">
     <div class="container">
       <div class="row gx-5">
         <aside class="col-lg-6">
@@ -17,8 +17,8 @@
         </aside>
         <main class="col-lg-6">
           <div class="ps-lg-3">
-            <h2 class="title text-dark">
-              <%= @clothe.name %><br />
+            <h2 class="title text-secondary">
+              <%= @clothe.name %> - <%= @clothe.brand %><br />
             </h2>
             <div class="d-flex flex-row my-3">
               <div class="text-warning mb-1 me-2">
@@ -38,12 +38,9 @@
               <span class="h5"><%= @clothe.price %>.00€</span>
               <span class="text-muted">/par jour</span>
             </div>
-            <p>
-            <%= @clothe.description %>
-            </p>
 
             <div class="row">
-              <dt class="col-3">Catégorie:</dt>
+              <dt class="col-3">Catégorie</dt>
               <dd class="col-9"><%= @clothe.category %></dd>
 
               <dt class="col-3">Couleur</dt>
@@ -51,26 +48,33 @@
 
               <dt class="col-3">Taille</dt>
               <dd class="col-9"><%= @clothe.size %></dd>
-
-              <dt class="col-3">Marque</dt>
-              <dd class="col-9"><%= @clothe.brand %></dd>
             </div>
 
             <hr />
 
             <div class="row mb-4">
               <div data-controller="form">
-                  <h4>Démarrer ma location</h4>
+                  <h4 class="text-secondary">Démarrer ma location</h4>
                 <label class="mb-2"></label>
                  <%= render "rentalform" %>
               </div>
               <!-- col.// -->
+
             </div>
           </div>
         </main>
+      <div class="col-12 m-4">
+          <h4 class="text-secondary">Description</h4>
+          <p>
+            <%= @clothe.description %>
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
+
+
 
   <!-- content -->
   <div class="card-category-show">
