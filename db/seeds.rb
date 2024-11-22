@@ -86,7 +86,7 @@ user_photos.each do |photo|
   user.save
 end
 
-tshirts_photos = ["tshirt-.jpg", "tshirt-2.jpg", "tshirt-3.jpg", "tshirt-4.jpg","tshirt-5.jpg","tshirt-6.jpg","tshirt-7.jpg","tshirt-8.jpg","tshirt-9.jpg","tshirt-10.jpg"]
+tshirts_photos = ["tshirt-1.jpg", "tshirt-2.jpg", "tshirt-3.jpg", "tshirt-4.jpg","tshirt-5.jpg","tshirt-6.jpg","tshirt-7.jpg","tshirt-8.jpg","tshirt-9.jpg","tshirt-10.jpg"]
 
 tshirts_photos.each do |photo|
   file_path = File.open("app/assets/images/#{photo}")
