@@ -43,7 +43,7 @@ class Clothe < ApplicationRecord
     "Red Ochre" => "#913831"
   }
 
-  SIZES = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"]
+  SIZES = ["S", "M", "L", "XL"]
   CATEGORIES = ["T-shirt", "Sweatshirt"]
   BRANDS = ["Uniqlo", "Zara", "H&M", "Nike", "Adidas", "Levi's", "Gucci", "Prada", "Ralph Lauren", "Lacoste"]
 
