@@ -4,6 +4,7 @@ class ClothesController < ApplicationController
     @rentals = Rental.all
     params[:color].present? ? @clothes = @clothes.where(color: params[:color]) : ""
     params[:brand].present? ? @clothes = @clothes.where(brand: params[:brand]) : ""
+    params[:size].present? ? @clothes = @clothes.where(size: params[:brand]) : ""
     if params[:start_date].present? && params[:end_date].present?
       @rentals = @rentals.where("start_date <= ? AND end_date >= ?", params[:start_date], params[:end_date])
       @clothes = @clothes.reject do |clothe|

@@ -2,23 +2,41 @@
   <div class="container">
     <div class="bg-white col-6 p-3 m-auto">
       <h1 class="text-secondary text-center">RedTnt vient te mettre <span class="text-primary"><strong>du rouge</strong></span> dans <strong>ta vie</strong>!</h1>
-      <div class="row justify-content-center mt-3">
-          <%= form_with url: clothes_path, method: :get  do |form| %>
-            <%= form.collection_select :brand,
-                        Clothe::BRANDS, :to_s, :to_s,
-                        prompt: "Marques",
-                        class: "form-control p-3"%>
-            <%= form.collection_select :color,
-                        Clothe::COLORS, :to_s, :to_s,
-                        prompt: "Couleurs",
-                        class: "form-control"%>
-            <%= form.date_field :start_date %>
-            <%= form.date_field :end_date %>
-            <div class="text-center mt-3">
-            <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-            </div>
-          <% end %>
-      </div>
+        <div class="row justify-content-center g-3 mt-3">
+          <div class="col-md-4">
+            <%= form_with url: clothes_path, method: :get  do |form| %>
+              <%= form.collection_select :brand,
+                          Clothe::BRANDS, :to_s, :to_s,
+                          prompt: "Marques",
+                          class: "form-control"%>
+          </div>
+          <div class="col-md-4">
+              <%= form.collection_select :color,
+                          Clothe::COLORS, :to_s, :to_s,
+                          prompt: "Couleurs",
+                          class: "form-control"%>
+          </div>
+          <div class="col-md-4">
+              <%= form.collection_select :size,
+                          Clothe::SIZES, :to_s, :to_s,
+                          prompt: "Tailles",
+                          class: "form-control form-control-lg"%>
+          </div>
+          </div>
+          <div class="row justify-content-center mt-3 g-3">
+          <div class="col-md-6">
+              <%= form.date_field :start_date %>
+          </div>
+          <div class="col-md-6">
+              <%= form.date_field :end_date %>
+          </div>
+          </div>
+          <div class="text-center mt-3">
+              <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+          </div>
+            <% end %>
+        </div>
+      </form>
     </div>
   </div>
 </div>
