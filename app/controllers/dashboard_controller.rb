@@ -11,7 +11,8 @@ class DashboardController < ApplicationController
     @item_rented = @user.rentals.map do |rental|
       rental.clothe
     end
-    @my_rentals = @rentals.where("user_id = ?", current_user.id)
-    raise
+    @my_rentals = @rentals.where("user_id = ?", current_user.id).map do |rental|
+      rental.clothe
+    end
   end
 end
