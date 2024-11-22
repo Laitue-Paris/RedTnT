@@ -1,8 +1,7 @@
 class Clothe < ApplicationRecord
   has_one_attached :photo
-  has_many :rentals
+  has_many :rentals, dependent: :destroy
   belongs_to :user
-  has_many :rentals
 
   COLORS = ["Blood Red", "Brick Red", "Bright Red", "Brown", "Burgundy", "Burnt Umber", "Burnt Orange", "Burnt Sienna", "Byzantium", "Cadmium Red", "Cardinal Red", "Carmine", "Cerise", "Cherry", "Chestnut", "Claret", "Coral Pink", "Cordovan", "Crimson", "Dark Red", "Falu Red", "Garnet", "Mahogany", "Maroon", "Marsala", "Mulberry", "Neon Red", "Oxblood", "Pastel Red", "Persimmon", "Poppy", "Puce", "Raspberry", "Red", "Red Brown", "Red Ochre", "Red"]
   COLORS_HEX = {
@@ -44,7 +43,7 @@ class Clothe < ApplicationRecord
     "Red Ochre" => "#913831"
   }
 
-  SIZES = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"]
+  SIZES = ["S", "M", "L", "XL"]
   CATEGORIES = ["T-shirt", "Sweatshirt"]
   BRANDS = ["Uniqlo", "Zara", "H&M", "Nike", "Adidas", "Levi's", "Gucci", "Prada", "Ralph Lauren", "Lacoste"]
 

@@ -1,16 +1,17 @@
-    <% @clothes.sample(6).each do |clothe| %>
-      <div class="col-2 mt-2">
-        <div class="card rounded">
-        <%= link_to clothe_path(clothe) do %>
-          <%= clothe&.photo.attached? ? cl_image_tag(clothe.photo.key) : image_tag('t-shirt.png', height: 200) %>
-        <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= clothe.name %></h5>
-            <p class="card-text"><%= clothe.description %></p>
-            <div class="text-center">
-              <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
-            </div>
-          </div>
+
+<% @clothes.sample(4).each do |clothe| %>
+  <div class="col-3 p-2">
+    <div class="card rounded">
+    <%= link_to clothe_path(clothe) do %>
+      <%= clothe&.photo.attached? ? cl_image_tag(clothe.photo.key) : image_tag('t-shirt.png', height: 200) %>
+    <% end %>
+      <div class="card-body">
+        <p class="card-title"><%= clothe.name %></p>
+        <p class="card-text"><%= clothe.description %></p>
+        <div class="text-center">
+          <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
         </div>
       </div>
-      <% end %>
+    </div>
+  </div>
+<% end %>
