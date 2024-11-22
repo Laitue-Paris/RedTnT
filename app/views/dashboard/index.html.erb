@@ -28,10 +28,12 @@
     <div class="col-3 bg-light">
      <div class="row justify-content-center" >
         <div class="card rounded border_none bg-light mt-3">
-          <%=@my_rentals.last&.photo.attached? ? cl_image_tag(@my_rentals.last.photo.key, crop: "fill") : image_tag('t-shirt.png', height: 200) %>
+        <% unless @my_rentals.empty? %>
+          <%=@my_rentals.last.photo.attached? ? cl_image_tag(@my_rentals.last.photo.key, crop: "fill") : image_tag('t-shirt.png', height: 200) %>
           <div class="card-body">
             <h5 class="card-title"><%=@my_rentals.last.name %></h5>
           </div>
+         <% end %>
         </div>
     </div>
     </div>
