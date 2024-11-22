@@ -120,10 +120,14 @@
 
 .card-text{
   width: 10em;
-  margin: 0 0 2em 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-title{
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
 }
 
 .card-container{
