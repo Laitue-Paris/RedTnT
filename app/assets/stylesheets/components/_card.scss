@@ -22,6 +22,8 @@
   padding: 16px;
 }
 
+
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -167,4 +169,29 @@
     border-radius: 50%;
   }
 }
+}
+
+
+.card-product-hp img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-product-hp h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product-hp p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-hp .card-product-infos {
+  padding: 16px;
 }
