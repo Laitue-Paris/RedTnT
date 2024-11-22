@@ -82,7 +82,7 @@ puts "Creating some Clothes for a rental website of Red T-shirt"
   clothe = Clothe.create!(
     name: RED_TSHIRT_NAMES.sample,
     color: Clothe::COLORS.sample,
-    price: (4..19).sample,
+    price: rand(4..19),
     size: Clothe::SIZES.sample,
     category: Clothe::CATEGORIES.sample,
     brand: Clothe::BRANDS.sample,
