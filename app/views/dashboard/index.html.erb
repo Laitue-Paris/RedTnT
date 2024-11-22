@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" data-controller="dashboard">
   <h1>Bienvenue <%= @user.first_name %></h1>
-  <div class="row justify-content-between">
-    <div class="col-6 bg-light">
-      <div class="card  bg-light mb-3" id="dashboard">
+  <div class="row justify-content-between bg-light">
+    <div class="col-6 bg-light m-auto">
+      <div class="card  bg-light" id="dashboard">
         <div class="row align-items-center">
           <div class="col-md-4">
           <%= current_user.photo.attached? ? cl_image_tag(current_user.photo.key) : image_tag('utilisateur.png', class: "img-fluid radius-50") %>
@@ -10,38 +10,34 @@
           <div class="col-md-8 align-content-center">
             <div class="card-body">
               <h5 class="card-title py-2">Nombres de locations effectuées : <span class="text-primary"><%= @user.rental_ids.count %></span></h5>
-              <div class="text-center">
-                <button class="btn btn-secondary">Historique</button>
-              </div>
+                <button class="btn btn-secondary" data-action="click->dashboard#history">Historique</button>
               <h5 class="card-title py-2">Nombres de locations en cours : <span class="text-secondary"><%= @rentals.count %></span></h5>
-              <div class="text-center">
-                <button class="btn btn-secondary">Mes locations en cours</button>
-              </div>
+                <button class="btn btn-secondary" data-action="click->dashboard#rent">Mes locations en cours</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-3 bg-light text-center">
+    <div class="col-3 bg-light m-auto text-center">
       <h2>Revenus</h2>
       <%= @total_rented.sum %>€
       <div class="mt-3">
-        <button class="btn btn-primary">J'en veux plus</button>
+        <button class="btn btn-primary" data-action="click->dashboard#form">J'en veux plus</button>
       </div>
     </div>
     <div class="col-3 bg-light">
-     <div class="row justify-content-center">
-        <div class="card rounded border_none bg-light">
+     <div class="row justify-content-center" >
+        <div class="card rounded border_none bg-light mt-3">
           <%=@my_rentals.last&.photo.attached? ? cl_image_tag(@my_rentals.last.photo.key, crop: "fill") : image_tag('t-shirt.png', height: 200) %>
           <div class="card-body">
-            <h5 class="card-title" id="short"><%=@my_rentals.last.name %></h5>
+            <h5 class="card-title"><%=@my_rentals.last.name %></h5>
           </div>
         </div>
     </div>
     </div>
   </div>
   <%= render "clothes/form", clothe: @clothe %>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center d-none" data-dashboard-target="history">
     <% @item_rented.each do |clothe| %>
       <div class="col-2 m-2">
         <div class="card rounded">
@@ -51,15 +47,12 @@
           <div class="card-body">
             <h5 class="card-title" id="short"><%= clothe.name %></h5>
             <p class="card-text"><%= clothe.description %></p>
-            <div class="text-center">
-              <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
-            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center d-none" data-dashboard-target="rent">
     <% @my_rentals.each do |clothe| %>
       <div class="col-2 m-2">
         <div class="card rounded">
@@ -69,12 +62,11 @@
           <div class="card-body">
             <h5 class="card-title" id="short"><%= clothe.name %></h5>
             <p class="card-text"><%= clothe.description %></p>
-            <div class="text-center">
-              <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
-            </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+  <div class="dashbord-banner">
+</div>
 </div>
