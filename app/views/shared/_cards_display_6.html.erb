@@ -5,7 +5,7 @@
       <%= clothe&.photo.attached? ? cl_image_tag(clothe.photo.key) : image_tag('t-shirt.png', height: 200) %>
     <% end %>
       <div class="card-body">
-        <h5 class="card-title"><%= clothe.name %></h5>
+        <h5 class="card-title" id="short"><%= clothe.name %></h5>
         <p class="card-text"><%= clothe.description %></p>
         <div class="text-center">
           <%= link_to "Louez-moi", clothe_path(clothe), class: "btn btn-primary" %>
