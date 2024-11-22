@@ -2,41 +2,43 @@
   <div class="container">
     <div class="bg-white col-6 p-3 m-auto">
       <h1 class="text-secondary text-center">RedTnt vient te mettre <span class="text-primary"><strong>du rouge</strong></span> dans <strong>ta vie</strong>!</h1>
+      <div class="mx-6">
         <div class="row justify-content-center g-3 mt-3">
           <div class="col-md-4">
             <%= form_with url: clothes_path, method: :get  do |form| %>
               <%= form.collection_select :brand,
                           Clothe::BRANDS, :to_s, :to_s,
-                          prompt: "Marques",
-                          class: "form-control"%>
+                          { prompt: "Marques" },
+                          { class: "form-select" } %>
           </div>
           <div class="col-md-4">
               <%= form.collection_select :color,
                           Clothe::COLORS, :to_s, :to_s,
-                          prompt: "Couleurs",
-                          class: "form-control"%>
+                          {prompt: "Couleurs"},
+                          { class: "form-select" } %>
           </div>
           <div class="col-md-4">
               <%= form.collection_select :size,
                           Clothe::SIZES, :to_s, :to_s,
-                          prompt: "Tailles",
-                          class: "form-control form-control-lg"%>
+                          { prompt: "Tailles" },
+                          { class: "form-select" } %>
           </div>
           </div>
           <div class="row justify-content-center mt-3 g-3">
           <div class="col-md-6">
-              <%= form.date_field :start_date %>
+              <%= form.label :start_date, "Date de début:", {class: "form-label"}%>
+              <%= form.date_field :start_date, {class: "form-control"} %>
           </div>
           <div class="col-md-6">
-              <%= form.date_field :end_date %>
+              <%= form.label :end_date, "Date de fin:", {class: "form-label"}%>
+              <%= form.date_field :end_date, {class: "form-control"} %>
           </div>
           </div>
           <div class="text-center mt-3">
               <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
           </div>
             <% end %>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
