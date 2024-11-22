@@ -14,5 +14,6 @@ class DashboardController < ApplicationController
     @my_rentals = @rentals.where("user_id = ?", current_user.id).map do |rental|
       rental.clothe
     end
+    @last_item = @user.rentals.last
   end
 end

@@ -5,7 +5,7 @@
       <div class="card  bg-light mb-3" id="dashboard">
         <div class="row align-items-center">
           <div class="col-md-4">
-          <%= @user.photo.attached? ? cl_image_tag(@user.photo.key) : image_tag('utilisateur.png', class: "img-fluid radius-50") %>
+          <%= current_user.photo.attached? ? cl_image_tag(current_user.photo.key) : image_tag('utilisateur.png', class: "img-fluid radius-50") %>
           </div>
           <div class="col-md-8 align-content-center">
             <div class="card-body">
@@ -30,7 +30,14 @@
       </div>
     </div>
     <div class="col-3 bg-light">
-      3
+     <div class="row justify-content-center">
+        <div class="card rounded border_none bg-light">
+          <%=@my_rentals.last&.photo.attached? ? cl_image_tag(@my_rentals.last.photo.key, crop: "fill") : image_tag('t-shirt.png', height: 200) %>
+          <div class="card-body">
+            <h5 class="card-title" id="short"><%=@my_rentals.last.name %></h5>
+          </div>
+        </div>
+    </div>
     </div>
   </div>
   <%= render "clothes/form", clothe: @clothe %>
