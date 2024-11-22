@@ -16,6 +16,7 @@ class ClothesController < ApplicationController
   def show
     @rental = Rental.new
     @clothe = Clothe.find(params[:id])
+    @clothes = Clothe.all
     @random_clothes = Clothe.all.sample(5)
     @rental_count = @clothe.rentals.count
     @user = current_user
