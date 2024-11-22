@@ -9,30 +9,31 @@
 #   end
 
 RED_TSHIRT_NAMES = [
-  "Crimson Blaze T-shirt",
-  "Ruby Glow Tee",
-  "Scarlet Wave Shirt",
-  "Firebrick Red Tee",
-  "Cherry Sunset Shirt",
-  "Cardinal Charm Tee",
-  "Sangria Essence T-shirt",
-  "Rosewood Classic Tee",
-  "Brick Flame Shirt",
-  "Garnet Luxe Tee"
+  "T-shirt Éclat Framboise",
+  "T-shirt Lumière Rubis",
+  "T-shirt Vague Écarlate",
+  "T-shirt Rouge Brique",
+  "T-shirt Coucher de Soleil Cerise",
+  "T-shirt Charme Cardinal",
+  "T-shirt Essence Sangria",
+  "T-shirt Classique Bois de Rose",
+  "T-shirt Flamme de Brique",
+  "T-shirt Luxe Grenat"
 ]
 
 RED_TSHIRT_DESCRIPTIONS = [
-  "Bold and vibrant, perfect for making a statement.",
-  "A sleek red T-shirt that adds a pop of color to your wardrobe.",
-  "Soft and comfortable, ideal for any casual outing.",
-  "A classic red shade with a modern fit for everyday wear.",
-  "Designed for comfort and style in a radiant red hue.",
-  "Turn heads with this deep red tee, a must-have staple.",
-  "Feel the energy of crimson in this stylish and durable shirt.",
-  "The perfect mix of elegance and casual flair in bright red.",
-  "Vividly colored and crafted for all-day comfort.",
-  "Brighten up your day with this chic and cozy red T-shirt."
+  "Un T-shirt rouge éclatant qui attire tous les regards. Parfait pour ceux qui aiment se démarquer et affirmer leur style avec audace et confiance.",
+  "Avec son rouge profond et sa coupe moderne, ce T-shirt apporte une touche d'élégance tout en restant décontracté. Un indispensable pour illuminer vos tenues quotidiennes.",
+  "Conçu pour allier confort et esthétique, ce T-shirt rouge vif est idéal pour une journée relaxante ou une soirée décontractée entre amis.",
+  "Affichez un style intemporel avec ce T-shirt rouge classique. Sa teinte vibrante et son design épuré en font un choix polyvalent et élégant.",
+  "Inspiré des couleurs d'un coucher de soleil, ce T-shirt rouge cerise incarne la chaleur et la sérénité. Un vêtement aussi confortable que captivant.",
+  "Ce T-shirt rouge cardinal est conçu pour les amoureux de la mode. Son rouge riche et profond en fait un incontournable pour un look raffiné et tendance.",
+  "Plongez dans l'intensité du rouge sangria avec ce T-shirt sophistiqué. Parfait pour ceux qui recherchent une pièce unique qui respire la confiance et le style.",
+  "Avec sa teinte bois de rose et sa finition classique, ce T-shirt s'adapte aussi bien aux moments décontractés qu'aux occasions spéciales.",
+  "Ajoutez une touche de feu à votre garde-robe avec ce T-shirt flamme brique. Idéal pour apporter du dynamisme à vos looks tout en restant ultra confortable.",
+  "Laissez-vous séduire par le luxe discret de ce T-shirt grenat. Une pièce intemporelle qui marie parfaitement confort, qualité et élégance."
 ]
+
 
 FIRST_NAMES = %w[Jean Marie Paul Sophie Claire Jacques Elise Lucie Antoine Camille]
 LAST_NAMES = %w[Durand Dupont Martin Bernard Morel Lefebvre Simon Laurent Michel David]
