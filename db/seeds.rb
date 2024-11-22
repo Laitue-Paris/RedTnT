@@ -81,8 +81,8 @@ puts "Creating some Clothes for a rental website of Red T-shirt"
 50.times do
   clothe = Clothe.create!(
     name: RED_TSHIRT_NAMES.sample,
-    color: "Red",
-    price: [19, 29, 39, 49, 59].sample,
+    color: Clothe::COLORS.sample,
+    price: (4..19).sample,
     size: Clothe::SIZES.sample,
     category: Clothe::CATEGORIES.sample,
     brand: Clothe::BRANDS.sample,
