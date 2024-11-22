@@ -5,7 +5,7 @@
       <div class="mx-6">
         <div class="row justify-content-center g-3 mt-3">
           <div class="col-md-4">
-            <%= form_with url: clothes_path, method: :get  do |form| %>
+            <%= form_with url: clothes_path, method: :get, data: {turbo: false}  do |form| %>
               <%= form.collection_select :brand,
                           Clothe::BRANDS, :to_s, :to_s,
                           { prompt: "Marques" },
