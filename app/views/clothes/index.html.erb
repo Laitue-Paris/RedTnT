@@ -10,18 +10,19 @@
         <div class="card-container">
           <% if clothe.photo.attached? %>
               <%= cl_image_tag clothe.photo.key, class: "card-img-top", style: "width: 100%; height: auto;" %>
-              <i class="fa-regular fa-heart favorite-icon"></i>
+              <%# <i class="fa-regular fa-heart favorite-icon"></i> %>
           <% else %>
               <%= image_tag "t-shirt 2.jpg", class: "card-img-top", style: "width: 100%; height: auto;" %>
-              <i class="fa-regular fa-heart red favorite-icon"></i>
+              <%# <i class="fa-regular fa-heart red favorite-icon"></i> %>
           <% end  %>
 
           <div class ="card">
             <div class="card-body">
-              <p class="card-title" style="font-size: 0.9rem; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px ; font-family: 'Montserrat', sans-serif;"><%= clothe.brand %> <%= clothe.name %></p>
-              <div class="d-flex justify-content-between">
-                <p class="card-text" ><%= clothe.color %> </p>
-                <div class="card-color" style= "background-color: <%= clothe.hexa_color %>;">
+              <p class="card-title" style="font-size: 15px; font-weight: 600; color: #333; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px ; font-family: 'Montserrat', sans-serif;"><%= clothe.brand %></p>
+               <p class="card-text" style="font-size: 15px; font-weight: 600; color: #333;"><%= clothe.name %> </p>
+                <div class="d-flex justify-content-between">
+                  <p class="card-text" ><%= clothe.color %> </p>
+                    <div class="card-color" style= "background-color: <%= clothe.hexa_color %>;">
                </div>
 
                 </div>
